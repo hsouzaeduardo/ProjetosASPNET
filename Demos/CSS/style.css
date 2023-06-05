@@ -1,0 +1,12 @@
+div {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 20px;
+} 
+.redonda{
+    border-radius: 50%;
+}
+.quadrada{
+
+}

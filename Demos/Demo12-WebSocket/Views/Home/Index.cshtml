@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<input type="text" id="msg"/>
+<ul id="lstMsg"></ul>
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        var ws = new WebSocket("wss://free3.piesocket.com/v3/1?api_key=PXTylH7wqVKkqUoVxrntub9Qiy12TG6prIG72mXG0oUGYdZyjlimxDxnsrTJ&notify_self");
+
+        $(function () {
+            ws.onopen = function () {
+                sendMessage('HSOUZA ENTROU NA SALA');
+            }
+
+            ws.onclose = function () {
+                sendMessage('HSOUZA SAIU NA SALA');
+            }
+
+            ws.onmessage = function (e) {
+                sendMessage(e.data);
+            }
+
+            $("#msg").keyup(function (e) {
+                if (e.keyCode == '13') {
+                    ws.send($("#msg").val());
+                }
+            })
+
+
+            var sendMessage = function (msg) {
+                $("#lstMsg").append("<li>" + msg + "</li>");
+            }
+
+        });
+
+    </script>
+}

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<span>@ViewBag.Controller</span> | <span>@ViewBag.Action</span>
+
+<div class="text-center">
+
+    @if (ViewBag.Id != 0)
+    {
+        <h1 class="display-4">@ViewBag.Id</h1>
+    }
+
+    @ViewBag.Data
+
+    @{
+        var aluno = (ViewData["Aluno"] as Aluno);
+        <h1>@aluno.Nome</h1>
+        <h1>@aluno.Idade</h1>
+    }
+    
+
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

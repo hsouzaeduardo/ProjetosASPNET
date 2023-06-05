@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "pivottable@2.23.0",
+      "destination": "wwwroot/assets/plugins/pivottable/"
+    }
+  ]
+}

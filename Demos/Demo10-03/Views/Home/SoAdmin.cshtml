@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "SoAdmin";
+}
+
+<h1>SoAdmin</h1>
+
+
+@{
+    if (this.IfHasClaim("Financeiro", "EDIT"))
+    {
+        <button class="btn btn-danger">EDIT</button>
+    }
+}
+
+@{
+    if (this.IfHasClaim("Financeiro", "DELETE"))
+    {
+        <button class="btn btn-warning">DELETE</button>
+    }
+}
+
+<button class="btn btn-warning" @Html.Raw(this.IfHasClaimShow("Financeiro", "DELETE")) >DELETE</button>
